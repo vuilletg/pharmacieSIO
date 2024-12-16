@@ -1,0 +1,19 @@
+{
+  "name": "pharmacie",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuilletg/pharmacieSIO.git"
+  },
+  "author": "Gaspard Vuillet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vuilletg/pharmacieSIO/issues"
+  },
+  "homepage": "https://github.com/vuilletg/pharmacieSIO#readme",
+  "description": ""
+}
