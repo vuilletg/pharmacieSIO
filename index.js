@@ -16,4 +16,8 @@ clientDB.connect( (err) =>{
     if (err) console.log("imposible de se connecter à la base " + configDB["dev"]["database"] + " \n Erreur:" + JSON.stringify(err))
     else console.log("connection à la base " + configDB["dev"]["database"] + " réussi sur le port " + configDB["dev"]["port"])
 });
-app.listen(3000, () => console.log("server démmarer sur le port 3000"));
+app.listen(3000, () => console.log("server démmaré sur le port 3000"));
+
+app.get("/", (req, res) => {
+    res.send("le serveur marche")
+})
