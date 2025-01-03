@@ -23,18 +23,24 @@ function getClient(criter = false) {
 
 
 }
-function addClient(client) {
+function addClient(param) {
 
-        let req = "insert into client (secu, nom, prenom, mutuelle, date_naissance) values "
-        client.query(req+"("+client.secu+","+client.nom+","+client.prenom+","+client.mutuelle+","+client.D_N+")", (err, result) => {
-            if (!err){
-                return result
-            }else {
-                throw new Error("requette impossible")
-            }
-        })
-
-
-
+    let req = "insert into client (secu, nom, prenom, mutuelle, date_naissance) values ("+param.secu+","+param.nom+","+param.prenom+","+param.mutuelle+","+param.D_N+")"
+    client.query(req, (err, result)=>{
+        if (!err){
+            return result
+        }else {
+            throw err
+        }
+    })
 }
-module.exports = {getClient, addClient}
+function delClient(id){
+    client.query("delete from client where secu = "+id,(err, result)=>{
+        if (!err){
+            return result
+        }else {
+            throw err
+        }
+    })
+}
+module.exports = {getClient, addClient, delClient}

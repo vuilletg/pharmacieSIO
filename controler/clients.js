@@ -12,7 +12,6 @@ const clientsController = {
     },
     async add(req, res) {
         try {
-            // Les données sont récupérées dans le corps de la requête
             const client = {
                 secu: req.body.secu,
                 nom: req.body.nom,
@@ -21,9 +20,17 @@ const clientsController = {
                 D_N: req.body.D_N
             };
             if (client.nom != "" & client.mutuelle != "" & client.secu != "" & client.prenom != "" & client.D_N != "") {
-                // on transmet le nouvel utilisateur à la fonction 'addmedecin' dans le modèle
-                let data =  model.addClient(client)
+                console.log(client)
+                res.send(model.addClient(client))
             }
+        }
+        catch (e) {
+            console.log(e)
+        }
+    },
+    async del(req, res) {
+        try {
+                res.send(model.delClient(req.param.id))
         }
         catch (e) {
             console.log(e)
