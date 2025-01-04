@@ -1,6 +1,4 @@
 const client = require("./bdd")
-const {query} = require("express");
-
 function getClient(criter = false) {
 
     if (!criter) {
@@ -43,4 +41,15 @@ function delClient(id){
         }
     })
 }
-module.exports = {getClient, addClient, delClient}
+function editClient(param) {
+
+    let req = "update client set (nom = "+param.nom+", prenom = "+param.prenom+", mutuelle = "+param.mutuelle+", date_naissance = "+param.D_N+") where secu = "+param.secu
+    client.query(req, (err, result)=>{
+        if (!err){
+            return result
+        }else {
+            throw err
+        }
+    })
+}
+module.exports = {getClient, addClient, delClient, editClient}

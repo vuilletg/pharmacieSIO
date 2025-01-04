@@ -36,5 +36,23 @@ const clientsController = {
             console.log(e)
         }
     },
+    async edit(req, res) {
+        try {
+            const client = {
+                secu: req.body.secu,
+                nom: req.body.nom,
+                prenom: req.body.prenom,
+                mutuelle: req.body.mutuelle,
+                D_N: req.body.D_N
+            };
+            if (client.nom != "" & client.mutuelle != "" & client.secu != "" & client.prenom != "" & client.D_N != "") {
+                console.log(client)
+                res.send(model.editClient(client))
+            }
+        }
+        catch (e) {
+            console.log(e)
+        }
+    }
 }
 module.exports = clientsController
