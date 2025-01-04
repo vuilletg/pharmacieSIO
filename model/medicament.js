@@ -3,7 +3,7 @@ const client = require("./bdd")
 function getMedicament(critere = false) {
 
     if (!critere) {
-        client.query("SELECT * FROM medicament where nom = " + critere, (err, result) => {
+        client.query("SELECT * FROM medicament where id = " + critere, (err, result) => {
             if (!err) {
                 return result
             } else {
@@ -36,7 +36,7 @@ function addMedicament(param) {
 }
 
 function delMedicament(id) {
-    client.query("delete from medicament where secu = " + id, (err, result) => {
+    client.query("delete from medicament where id = " + id, (err, result) => {
         if (!err) {
             return result
         } else {

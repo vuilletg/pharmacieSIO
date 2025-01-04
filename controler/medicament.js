@@ -2,7 +2,7 @@ let model = require("../model/medicament")
 const medicamentController = {
     async default(req, res) {
         try{
-            let data = (req.param.nom !== "")? model.getMedicament(req.param.nom):  model.getMedicament()
+            let data = (req.param.id !== "")? model.getMedicament(req.param.nom):  model.getMedicament()
             console.log(data)
             res.send(data)
         } catch (e) {
