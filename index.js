@@ -1,5 +1,6 @@
 const clientRoute = require("./routes/clients")
-const medicamentRoute = require("routes/medicament")
+const medicamentRoute = require("./routes/medicament")
+const oddonnaceRoute = require("./routes/ordonnance")
 const errorRoute = require("./controler/errors")
 const express = require("express")
 let app = express()
@@ -8,4 +9,5 @@ app.use(express.urlencoded({ extended: true }))
 app.listen(3000, () => console.log("server démmaré sur le port 3000"));
 app.use("/client", clientRoute)
 app.use("/medicament",medicamentRoute)
+app.use("/ordonnance",oddonnaceRoute)
 app.get("*", errorRoute.Error)
