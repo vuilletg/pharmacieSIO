@@ -1,16 +1,17 @@
 const client = require("./bdd")
-function getClient(criter = false) {
+async function getClient(criter = false) {
 
     if (!criter) {
-        client.query("SELECT * FROM client where nom =?",[criter],(err, result) => {
+         await client.query("SELECT * FROM client",(err, result) => {
             if (!err){
+                console.log(result)
                 return result
             }else {
-                throw new Error("requette impossible" + err)
+                throw err
             }
         })
     } else {
-        client.query("SELECT * FROM client", (err, result) => {
+        await client.query("SELECT * FROM client where nom =",[criter], (err, result) => {
             if (!err){
                 return result
             }else {
@@ -23,7 +24,7 @@ function getClient(criter = false) {
 }
 function addClient(param) {
 
-    let req = "insert into client (secu, nom, prenom, mutuelle, date_naissance) values ("+param.secu+","+param.nom+","+param.prenom+","+param.mutuelle+","+param.D_N+")"
+    let req = "insert into client (secu, nom, prenom, mutuelle, date_naissance) values (\""+param.secu+"\",\""+param.nom+"\",\""+param.prenom+"\",\""+param.mutuelle+"\",\""+param.D_N+"\")"
     client.query(req, (err, result)=>{
         if (!err){
             return result
@@ -43,7 +44,7 @@ function delClient(id){
 }
 function editClient(param) {
 
-    let req = "update client set (nom = "+param.nom+", prenom = "+param.prenom+", mutuelle = "+param.mutuelle+", date_naissance = "+param.D_N+") where secu = "+param.secu
+    let req = "update client set (nom = \""+param.nom+"\", prenom = \""+param.prenom+"\", mutuelle = \""+param.mutuelle+"\", date_naissance = \""+param.D_N+"\") where secu = \""+param.secu +"\""
     client.query(req, (err, result)=>{
         if (!err){
             return result

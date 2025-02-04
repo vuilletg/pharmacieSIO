@@ -25,7 +25,7 @@ function getOrdonnance(critere = false) {
 
 function addOrdonnance(param) {
 
-    let req = "insert into ordonnance (medicament, duree, debut, posologie, client) values (" + param.medicament + "," + param.duree + "," + param.debut +"," + param.posologie +"," + param.client + ")"
+    let req = "insert into ordonnance (medicament, duree, debut, posologie, client) values (" + param.medicament + "," + param.duree + "," + param.debut +"," + param.posologie +",\"" + param.client + "\")"
     client.query(req, (err, result) => {
         if (!err) {
             return result
@@ -47,7 +47,7 @@ function delOrdonnance(id) {
 
 function editOrdonnance(param) {
 
-    let req = "update ordonnance set (medicament = " + param.medicament + ", duree = " + param.duree + ", debut = " + param.debut +", posologie = " + param.posologie +", client = " + param.client + ") where id = " + param.id
+    let req = "update ordonnance set (medicament = " + param.medicament + ", duree = " + param.duree + ", debut = " + param.debut +", posologie = " + param.posologie +", client = \"" + param.client + "\") where id = " + param.id
     client.query(req, (err, result) => {
         if (!err) {
             return result

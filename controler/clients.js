@@ -2,9 +2,9 @@ let model = require("../model/client")
 const clientsController = {
     async default(req, res) {
         try{
-            let data = (req.param.nom !== "")? model.getClient(req.param.nom):  model.getClient()
+            let data = (typeof (req.param.nom) !== "undefined")? await model.getClient(req.param.nom): await model.getClient()
             console.log(data)
-            res.send(data)
+            res.json(data)
         } catch (e) {
             console.log(e.message)
         }

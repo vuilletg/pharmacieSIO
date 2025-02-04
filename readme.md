@@ -11,13 +11,13 @@ le projet utilise les élement suivant:
 
 * ``` git clone https://github.com/vuilletg/pharmacieSIO.git```
 * ``` npm install```
-* ``` node index.js```
 * Créez un fichier **_DB.ini_** à la racine du projet contenant les informations de connexion à la base de données. Ajoutez-y les paramètres suivants pour l'environnement de développement :
   * host 
   * user
   * password
   * database
   * port
+* ``` node index.js```
 ## Schema base
 ce projet comporte une base de donnée qui se présente comme suit
 

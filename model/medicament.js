@@ -25,7 +25,7 @@ function getMedicament(critere = false) {
 
 function addMedicament(param) {
 
-    let req = "insert into medicament (nom, mode,stock) values (" + param.nom + "," + param.mode + "," + param.stock + ")"
+    let req = "insert into medicament (nom, mode,stock) values (\"" + param.nom + "\",\"" + param.mode + "\"," + param.stock + ")"
     client.query(req, (err, result) => {
         if (!err) {
             return result
@@ -47,7 +47,7 @@ function delMedicament(id) {
 
 function editMedicament(param) {
 
-    let req = "update medicament set (nom = " + param.nom + ", MODE = " + param.mode + ", stock = " + param.stock + ") where id = " + param.id
+    let req = "update medicament set (nom = \"" + param.nom + "\", MODE = \"" + param.mode + "\", stock = " + param.stock + ") where id = " + param.id
     client.query(req, (err, result) => {
         if (!err) {
             return result
